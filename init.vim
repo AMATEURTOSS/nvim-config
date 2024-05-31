@@ -34,6 +34,11 @@ nnoremap <leader>of :Telescope oldfiles<cr>
 nnoremap <leader>lg :Telescope live_grep<cr>
 nnoremap <leader>cf :e ~/.config/nvim/init.vim<cr>
 nnoremap <leader>nt :NvimTreeToggle<cr>
+" 패널 이동을 ctrl + kjhl로
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 " Plugin
 lua require('plugins')
