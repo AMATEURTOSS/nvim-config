@@ -15,7 +15,4 @@ return require('packer').startup(function(use)
 
   -- telescope file explorer
   use {'nvim-telescope/telescope.nvim', tag = '0.1.6',requires = {{'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons'}}}
-
-  -- coc lsp
-  use {'neoclide/coc.nvim', branch = 'release'}
 end)

@@ -23,11 +23,6 @@ cnoreabbrev vsp vsp
 cnoreabbrev hsp sp
 
 " Keymap
-nnoremap <silent> K :call ShowDocumentation()<CR>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>" " Tab for autocomplete
 nnoremap <leader>ff :Telescope find_files<cr>
 nnoremap <leader>of :Telescope oldfiles<cr>
@@ -45,10 +40,3 @@ lua require('plugins')
 lua require('config/lualine')
 lua require('config/nvim-tree')
 
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
