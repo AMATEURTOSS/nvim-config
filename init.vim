@@ -44,7 +44,6 @@ nmap <silent> <c-l> :wincmd l<CR>
 lua require('plugins')
 lua require('config/lualine')
 lua require('config/nvim-tree')
-lua require('config/dashboard-nvim')
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')

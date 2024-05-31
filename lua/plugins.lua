@@ -10,9 +10,6 @@ return require('packer').startup(function(use)
   -- lualine footer theme
   use {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
 
-  -- startup screen theme
-  use {'nvimdev/dashboard-nvim', event = 'VimEnter'}
-
   -- nvim tree
   use {'nvim-tree/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'}}
 
