@@ -11,13 +11,13 @@ return require('packer').startup(function(use)
   use {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
 
   -- startup screen theme
-  use {'glepnir/dashboard-nvim'}
+  use {'nvimdev/dashboard-nvim', event = 'VimEnter'}
 
   -- nvim tree
-  use {'nvim-tree/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'}, tag = 'nightly'}
+  use {'nvim-tree/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'}}
 
   -- telescope file explorer
-  use {'nvim-telescope/telescope.nvim', tag = '0.1.0',requires = {{'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons'}}}
+  use {'nvim-telescope/telescope.nvim', tag = '0.1.6',requires = {{'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons'}}}
 
   -- coc lsp
   use {'neoclide/coc.nvim', branch = 'release'}
