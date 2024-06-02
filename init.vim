@@ -23,7 +23,6 @@ cnoreabbrev vsp vsp
 cnoreabbrev hsp sp
 
 " Keymap
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>" " Tab for autocomplete
 nnoremap <leader>ff :Telescope find_files<cr>
 nnoremap <leader>of :Telescope oldfiles<cr>
 nnoremap <leader>lg :Telescope live_grep<cr>
