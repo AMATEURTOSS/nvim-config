@@ -5,7 +5,9 @@ set relativenumber
 set splitright splitbelow
 
 " Color scheme
-colorscheme rose-pine
+" colorscheme rose-pine
+colorscheme catppuccin
+
 hi Normal guibg=none
 hi NormalNC guibg=none
 hi LineNr guibg=none 

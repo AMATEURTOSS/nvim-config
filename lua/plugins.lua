@@ -5,10 +5,11 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- theme
-  use{'rose-pine/neovim', as = 'rose-pine'}
+  use {'rose-pine/neovim', as = 'rose-pine'}
+  use {'catppuccin/nvim', as = 'catppuccin'}
 
   -- lualine footer theme
-  use {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
+  use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
 
   -- nvim tree
   use {'nvim-tree/nvim-tree.lua', requires = {'nvim-tree/nvim-web-devicons'}}
