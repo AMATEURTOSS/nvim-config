@@ -6,10 +6,10 @@
 - nvim-tree
 - telescope
 - rose-pine
-- coc-nvim
-  - coc-css
-  - coc-html
-  - coc-json
-  - coc-tsserver
-  - coc-prettier
-- dashboard-nvim
+- nvim-lspconfig
+- mason
+- autocomplete
+  - nvim-cmp
+  - cmp-nvim-lsp
+  - cmp-luasnip
+  - LuaSnip
