@@ -37,6 +37,8 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 " Plugin
 lua require('plugins')
+lua require('config/mason')
 lua require('config/lualine')
 lua require('config/nvim-tree')
+lua require('config/lspconfig')
 
