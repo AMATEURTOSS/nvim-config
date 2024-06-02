@@ -23,6 +23,10 @@ cnoreabbrev vsp vsp
 cnoreabbrev hsp sp
 
 " Keymap
+nnoremap <leader>gD :lua vim.lsp.buf.declaration()<cr>
+nnoremap <leader>gd :lua vim.lsp.buf.definition()<cr>
+nnoremap <leader>gh :lua vim.lsp.buf.hover()<cr>
+nnoremap <leader>gr :lua vim.lsp.buf.references()<cr>
 nnoremap <leader>ff :Telescope find_files<cr>
 nnoremap <leader>of :Telescope oldfiles<cr>
 nnoremap <leader>lg :Telescope live_grep<cr>
