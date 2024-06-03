@@ -1,8 +1,10 @@
 set nu
 set nowrap
-set autoindent expandtab tabstop=2 shiftwidth=2
 set relativenumber
 set splitright splitbelow
+
+set listchars+=space:·
+set list
 
 " Color scheme
 " colorscheme rose-pine
@@ -10,13 +12,13 @@ colorscheme catppuccin
 
 hi Normal guibg=none
 hi NormalNC guibg=none
-hi LineNr guibg=none 
-hi Folded guibg=none 
-hi NonText guibg=none 
-hi SpecialKey guibg=none 
-hi VertSplit guibg=none 
-hi SignColumn guibg=none 
-hi EndOfBuffer guibg=none 
+hi LineNr guibg=none
+hi Folded guibg=none
+hi NonText guibg=none
+hi SpecialKey guibg=none
+hi VertSplit guibg=none
+hi SignColumn guibg=none
+hi EndOfBuffer guibg=none
 hi NvimTreeNormal guibg=none
 hi NvimTreeNormalNC guibg=none
 
