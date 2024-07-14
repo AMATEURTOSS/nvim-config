@@ -4,7 +4,6 @@ set relativenumber
 set splitright splitbelow
 
 set listchars+=space:·
-set list
 
 " Color scheme
 " colorscheme rose-pine
