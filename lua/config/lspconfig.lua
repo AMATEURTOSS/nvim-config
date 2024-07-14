@@ -1,14 +1,8 @@
 local lspconfig = require('lspconfig')
 
 lspconfig.tsserver.setup{}
-
-local servers = { 'tsserver', 'tailwindcss' }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  }
-end
+lspconfig.tailwindcss.setup{}
+lspconfig.rust_analyzer.setup{}
 
 -- luasnip setup
 local luasnip = require 'luasnip'
