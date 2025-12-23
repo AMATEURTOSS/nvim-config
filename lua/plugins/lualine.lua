@@ -6,7 +6,7 @@ return {
       options = {
         theme = 'ayu_light',
         component_separators = { left = '|', right = '|' },
-        section_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         globalstatus = true,
       },
       sections = {
