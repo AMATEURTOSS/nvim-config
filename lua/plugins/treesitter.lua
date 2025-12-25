@@ -3,7 +3,7 @@ return {
   build = ":TSUpdate",
   lazy = false,
   opts = {
-    ensure_installed = { "lua", "typescript", "javascript", "python", "vim", "vimdoc" },
+    ensure_installed = { "lua", "typescript", "javascript", "tsx", "jsx", "python", "vim", "vimdoc" },
     auto_install = true,
   },
 }

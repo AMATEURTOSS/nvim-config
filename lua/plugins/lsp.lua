@@ -17,6 +17,7 @@ return {
           "lua_ls",
           "ts_ls", -- TypeScript/JavaScript
           "pyright", -- Python
+          "tailwindcss", -- Tailwind CSS
         },
       })
     end,
@@ -78,8 +79,17 @@ return {
         on_attach = on_attach,
       })
 
+      -- Tailwind CSS LSP 설정
+      vim.lsp.config("tailwindcss", {
+        cmd = { "tailwindcss-language-server", "--stdio" },
+        root_markers = { "tailwind.config.js", "tailwind.config.cjs", "tailwind.config.mjs", "tailwind.config.ts", ".git" },
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+      })
+
       -- LSP 자동 시작
-      vim.lsp.enable({ "lua_ls", "ts_ls", "pyright" })
+      vim.lsp.enable({ "lua_ls", "ts_ls", "pyright", "tailwindcss" })
     end,
   },
 
