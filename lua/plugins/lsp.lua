@@ -34,17 +34,17 @@ return {
 
       -- 공통 on_attach 함수
       local on_attach = function(client, bufnr)
-        local opts = { buffer = bufnr, noremap = true, silent = true }
+        local function map(mode, lhs, rhs, desc)
+          vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, noremap = true, silent = true, desc = desc })
+        end
 
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-
-        -- 진단(diagnostic) 관련 키맵
-        vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
+        map("n", "gd", vim.lsp.buf.definition, "정의로 이동")
+        map("n", "K", vim.lsp.buf.hover, "문서 보기")
+        map("n", "gi", vim.lsp.buf.implementation, "구현으로 이동")
+        map("n", "gr", vim.lsp.buf.references, "참조 찾기")
+        map("n", "<leader>rn", vim.lsp.buf.rename, "이름 변경")
+        map("n", "<leader>ca", vim.lsp.buf.code_action, "코드 액션")
+        map("n", "gl", vim.diagnostic.open_float, "진단 보기")
       end
 
       -- Lua LSP 설정
