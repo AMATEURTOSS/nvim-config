@@ -92,28 +92,78 @@ return {
       "hrsh7th/cmp-path",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
+      "onsails/lspkind.nvim", -- 아이콘 추가
     },
     config = function()
       local cmp = require("cmp")
+      local lspkind = require("lspkind")
+
       cmp.setup({
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
           end,
         },
+        -- 윈도우 스타일링
+        window = {
+          completion = cmp.config.window.bordered({
+            border = "rounded",
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+          }),
+          documentation = cmp.config.window.bordered({
+            border = "rounded",
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+          }),
+        },
+        -- 포맷팅 (아이콘 및 소스 표시)
+        formatting = {
+          format = lspkind.cmp_format({
+            mode = "symbol_text", -- 아이콘과 텍스트 함께 표시
+            maxwidth = 50,
+            ellipsis_char = "...",
+            before = function(entry, vim_item)
+              -- 소스 이름 표시
+              vim_item.menu = ({
+                nvim_lsp = "[LSP]",
+                luasnip = "[Snippet]",
+                buffer = "[Buffer]",
+                path = "[Path]",
+              })[entry.source.name]
+              return vim_item
+            end,
+          }),
+        },
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
+          { name = "nvim_lsp", priority = 1000 },
+          { name = "luasnip", priority = 750 },
         }, {
-          { name = "buffer" },
-          { name = "path" },
+          { name = "buffer", priority = 500 },
+          { name = "path", priority = 250 },
         }),
+        -- 자동완성 메뉴 동작 설정
+        experimental = {
+          ghost_text = true, -- 미리보기 텍스트 표시
+        },
       })
     end,
   },
