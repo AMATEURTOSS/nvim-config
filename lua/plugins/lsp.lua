@@ -33,6 +33,13 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+      -- 진단 floating window 설정
+      vim.diagnostic.config({
+        float = {
+          border = "rounded",
+        },
+      })
+
       -- 공통 on_attach 함수
       local on_attach = function(client, bufnr)
         local function map(mode, lhs, rhs, desc)
@@ -40,7 +47,7 @@ return {
         end
 
         map("n", "gd", vim.lsp.buf.definition, "정의로 이동")
-        map("n", "K", vim.lsp.buf.hover, "문서 보기")
+        map("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, "문서 보기")
         map("n", "gi", vim.lsp.buf.implementation, "구현으로 이동")
         map("n", "gr", vim.lsp.buf.references, "참조 찾기")
         map("n", "<leader>rn", vim.lsp.buf.rename, "이름 변경")
