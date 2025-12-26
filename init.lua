@@ -20,3 +20,7 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
+
+-- 창 분할
+vim.keymap.set("n", "<leader>-", "<cmd>split<CR>", { desc = "가로 분할" })
+vim.keymap.set("n", "<leader>|", "<cmd>vsplit<CR>", { desc = "세로 분할" })
