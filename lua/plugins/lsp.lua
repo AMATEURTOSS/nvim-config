@@ -33,15 +33,8 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      -- 진단 floating window 설정
-      vim.diagnostic.config({
-        float = {
-          border = "rounded",
-        },
-      })
-
       -- 공통 on_attach 함수
-      local on_attach = function(client, bufnr)
+      local on_attach = function(_, bufnr)
         local function map(mode, lhs, rhs, desc)
           vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, noremap = true, silent = true, desc = desc })
         end
