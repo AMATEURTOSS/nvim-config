@@ -18,6 +18,7 @@ return {
           "ts_ls", -- TypeScript/JavaScript
           "pyright", -- Python
           "tailwindcss", -- Tailwind CSS
+          "clangd", -- C/C++
         },
       })
     end,
@@ -88,8 +89,25 @@ return {
         filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
       })
 
+      -- C/C++ LSP 설정
+      vim.lsp.config("clangd", {
+        cmd = { "clangd" },
+        root_markers = {
+          ".clangd",
+          ".clang-tidy",
+          ".clang-format",
+          "compile_commands.json",
+          "compile_flags.txt",
+          "configure.ac",
+          ".git",
+        },
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+      })
+
       -- LSP 자동 시작
-      vim.lsp.enable({ "lua_ls", "ts_ls", "pyright", "tailwindcss" })
+      vim.lsp.enable({ "lua_ls", "ts_ls", "pyright", "tailwindcss", "clangd" })
     end,
   },
 
