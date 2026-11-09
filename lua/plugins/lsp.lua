@@ -106,8 +106,26 @@ return {
         filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
       })
 
+      -- Rust LSP 설정 (rustup으로 설치된 시스템 rust-analyzer 사용)
+      vim.lsp.config("rust_analyzer", {
+        cmd = { "rust-analyzer" },
+        root_markers = { "Cargo.toml", "rust-project.json", ".git" },
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = { allFeatures = true },
+            check = { command = "clippy" },
+            inlayHints = {
+              parameterHints = { enable = true },
+              typeHints = { enable = true },
+            },
+          },
+        },
+      })
+
       -- LSP 자동 시작
-      vim.lsp.enable({ "lua_ls", "ts_ls", "pyright", "tailwindcss", "clangd" })
+      vim.lsp.enable({ "lua_ls", "ts_ls", "pyright", "tailwindcss", "clangd", "rust_analyzer" })
     end,
   },
 
