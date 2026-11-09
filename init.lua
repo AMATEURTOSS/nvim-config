@@ -11,6 +11,7 @@ vim.opt.wrap = false                 -- 줄 바꿈 비활성화
 vim.opt.termguicolors = true         -- True color 지원
 vim.opt.ignorecase = true            -- 검색 시 대소문자 무시
 vim.opt.smartcase = true             -- 대문자 포함 시 대소문자 구분
+vim.opt.scrolloff = 8                -- 커서 위/아래 최소 8줄 여백 유지
 
 -- lazy.nvim 불러오기
 require("config.lazy")
