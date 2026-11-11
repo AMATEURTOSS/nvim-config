@@ -16,12 +16,6 @@ vim.opt.scrolloff = 8                -- 커서 위/아래 최소 8줄 여백 유
 -- lazy.nvim 불러오기
 require("config.lazy")
 
--- Ctrl + hjkl로 창 이동
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-
 -- 창 분할
 vim.keymap.set("n", "<leader>-", "<cmd>split<CR>", { desc = "가로 분할" })
 vim.keymap.set("n", "<leader>|", "<cmd>vsplit<CR>", { desc = "세로 분할" })
